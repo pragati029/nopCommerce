@@ -1,0 +1,16 @@
+name: dotnet workflow
+on:
+  push:
+    branches:
+      - devolop
+
+jobs: 
+  myproject_dotnet:
+    runs-on: selfhosted
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - name: project-build
+        run: dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o pragati
+        
+
