@@ -17,7 +17,8 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Your SonarCloud token secret
         with:
-          projectKey: pragati029_nopCommerce
-          organization: pragati029
-          host.url: https://sonarcloud.io/
+        sonar.host.url: https://sonarcloud.io/
+        sonar.projectKey: pragati029_nopCommerce
+        sonar.organization: pragati029
+          
 
