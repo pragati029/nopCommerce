@@ -13,7 +13,7 @@ jobs:
       - name: project-build
         run: dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o pragati
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2.0.0 # Use the latest stable version
+        uses: SonarSource/sonarcloud-github-action@v3 # Use the latest stable version
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Your SonarCloud token secret
         with:
