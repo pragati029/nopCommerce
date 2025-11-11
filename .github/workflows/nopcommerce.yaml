@@ -13,4 +13,4 @@ jobs:
       - name: project-build
         run: dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o pragati
         
-
+# changed
