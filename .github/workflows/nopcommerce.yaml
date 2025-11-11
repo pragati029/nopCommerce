@@ -21,4 +21,21 @@ jobs:
             -Dsonar.organization=pragati029
             -Dsonar.projectKey=pragati029_nopCommerce
             -Dsonar.host.url=https://sonarcloud.io/       
-          
+            - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: Build Docker image
+        env:
+          ECR_REGISTRY: aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 450988964435.dkr.ecr.ap-south-1.amazonaws.com
+          ECR_REPOSITORY: myreopo-github
+          IMAGE_TAG: latest
+          run: |    # | multiple values
+           docker build -t myreopo-github .
+           docker tag myreopo-github:latest 450988964435.dkr.ecr.ap-south-1.amazonaws.com/myreopo-github:latest
+           docker push 450988964435.dkr.ecr.ap-south-1.amazonaws.com/myreopo-github:latest
