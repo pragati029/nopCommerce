@@ -21,7 +21,7 @@ jobs:
             -Dsonar.organization=pragati029
             -Dsonar.projectKey=pragati029_nopCommerce
             -Dsonar.host.url=https://sonarcloud.io/       
-            - name: Configure AWS credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
