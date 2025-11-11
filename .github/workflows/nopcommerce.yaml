@@ -12,5 +12,12 @@ jobs:
         uses: actions/checkout@v4
       - name: project-build
         run: dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o pragati
-        
-# changed
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2.0.0 # Use the latest stable version
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Your SonarCloud token secret
+        with:
+          projectKey: pragati029_nopCommerce
+          organization: pragati029
+          host.url: https://sonarcloud.io/
+
