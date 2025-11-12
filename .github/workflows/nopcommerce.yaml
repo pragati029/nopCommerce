@@ -39,3 +39,12 @@ jobs:
           docker build -t myreopo-github .
           docker tag myreopo-github:latest 450988964435.dkr.ecr.ap-south-1.amazonaws.com/myreopo-github:latest
           docker push 450988964435.dkr.ecr.ap-south-1.amazonaws.com/myreopo-github:latest
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: '450988964435.dkr.ecr.ap-south-1.amazonaws.com/myreopo-github:latest'
+          format: 'table'           
+          output: 'trivy-results.xml'
+          exit-code: '0'          
+          ignore-unfixed: true   
+          severity: 'CRITICAL,HIGH'
