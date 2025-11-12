@@ -49,7 +49,7 @@ jobs:
           ignore-unfixed: true   
           severity: 'CRITICAL,HIGH'
       - name: Update Kubeconfig
-        uses: aws-actions/amazon-eks-kubeconfig@v2
+        uses: aws-actions/amazon-eks-kubeconfig@v3
         with:
           cluster-name: ${{ secrets.CLUSTER_NAME }}
           aws-region: ${{ secrets.AWS_REGION }}
